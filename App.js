@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
 import { myProfile, friendProfiles } from "./src/data";
@@ -11,9 +12,13 @@ import Profile from "./src/Profile";
 const statusBarHeight = getStatusBarHeight(true);
 
 export default function App() {
+  const [isOpened, setIsOpened] = useState(true);
+
   const onPressArrow = () => {
-    console.log("clicked arrow");
+    console.log("Clicked!");
+    setIsOpened(!isOpened);
   };
+
   return (
     <View style={styles.container}>
       <Header />
@@ -35,9 +40,10 @@ export default function App() {
       <FriendSection
         friendProfileLen={friendProfiles.length}
         onPressArrow={onPressArrow}
+        isOpened={isOpened}
       />
 
-      <FriendList data={friendProfiles} />
+      <FriendList data={friendProfiles} isOpened={isOpened} />
     </View>
   );
 }
