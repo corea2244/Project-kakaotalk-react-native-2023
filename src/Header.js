@@ -18,9 +18,7 @@ export default () => {
         paddingVertical: 10,
       }}
     >
-      <Text style={{ fontSize: 32, fontWeight: "bold", marginLeft: 10 }}>
-        친구
-      </Text>
+      <Text style={{ fontSize: 32, fontWeight: "bold" }}>친구</Text>
 
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <IconButton name="search-outline" />
